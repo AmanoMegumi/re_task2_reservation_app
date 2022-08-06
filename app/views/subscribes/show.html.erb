@@ -1,0 +1,46 @@
+<div class="container subscribe-show">
+  <div class="row">
+    <div class="col-md-8">
+      <%= image_tag @subscribe.roomphoto.url, alt: "部屋画像", class: "subscribe-show-image" %>
+      <div class="subscribe-show-detail">
+        <div class="subscribe-show-detail-icon">
+          <%= link_to root_path do %>
+            <img class="host-icon" src="/assets/default_icon.jpg" >
+          <% end %>
+        </div>
+
+        <div class="subscribe-show-profile">
+          <p class="subscribe-show-profile-name"><%= @subscribe.roomname %></p>
+          <p class="subscribe-show-profile-address"><%= @subscribe.address %></p>
+        </div>
+      </div>
+
+      <p class="subscribe-show-detail-content"><%= @subscribe.explanation %></p>
+    </div>
+
+    <div class="col-md-4">
+      <div class="subscribe-show-nav">
+        <h5 class="price-icon"><%= @subscribe.price %> / 日</h5>
+        <div class="subscribe-show-date-select">
+          <%= form_with url: reserve_confirm_path, local: true do |f| %>
+            <%= f.hidden_field :subscribe_id, value: @subscribe.id %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+
+            <label for="start-date">開始日</label>
+            <%= f.date_field :start_date, class: "form-control mb-4" %>
+            <label for="end-date">終了日</label>
+            <%= f.date_field :end_date, class: "form-control mb-4" %>
+            <label for="number_of_people">人数</label>
+            <%= f.number_field :headcount, class: "form-control mb-4" %>
+
+            <% if user_signed_in? %>
+              <%= f.submit "予約する", class: "btn btn-primary form-control", data: {disable_with: "予約する"} %>
+            <% else %>
+              <%= link_to "ログイン", session_new_path, class: "btn btn-primary form-control" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

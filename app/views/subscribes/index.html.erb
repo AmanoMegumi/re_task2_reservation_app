@@ -1,0 +1,35 @@
+<div class="container-fiuld subscribe-index">
+  <h4 class="pb-4">登録済みルーム一覧</h4>
+
+  <table>
+    <thead>
+      <tr align="center">
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>料金</th>
+        <th>作成日</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @subscribes.each do |subscribe| %>
+        <% if subscribe.user_id == current_user.id %>
+          <tr>
+            <td>
+              <%= link_to subscribe_path(:id) do %>
+                <%= image_tag subscribe.roomphoto.thumb.url, alt: "部屋画像", class: "subscribe-show-image" %>
+              <% end %>
+            </td>
+          
+            <td><%= link_to subscribe.roomname, "/subscribe/#{subscribe.id}" %></td>
+            <td><%= subscribe.explanation %></td>
+            <td><%= subscribe.price %></td>
+            <td><%= subscribe.created_at %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

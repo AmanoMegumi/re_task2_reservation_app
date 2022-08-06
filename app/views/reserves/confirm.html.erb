@@ -1,0 +1,38 @@
+<div class="container reserve-new">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="reserve-new-nav">
+        <h4 class="reserve-new-check-content">予約内容確認</h4>
+        <h5 class="price-icon"><%= @subscribe.price %> / 日</h5>
+
+        <div class="reserve-new-date-select">
+          <%= form_with model: @reserve, class: "new_reserve", local: true do |f| %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :subscribe_id, value: @subscribe.id %>
+            <%= f.hidden_field :headcount, value: @reserve.headcount %>
+
+            <label for="start_date">開始日</label>
+            <%= f.text_field :start_date, class: "form-control mb-4", readonly: true %>
+
+            <label for="end_date">終了日</label>
+            <%= f.text_field :end_date, class: "form-control mb-4", readonly: true %>
+
+            <h6 class="reserve-new-check-content">使用日数：<%= @days %>日</h6>
+            <h6 class="reserve-new-check-content">人数：<%= @reserve.headcount %>人</h6>
+
+            <label for="reserve_price">合計金額</label>
+            <%= f.text_field :reserve_price, value: @price, class: "form-control mb-4", readonly: true %>
+
+            <p class="reserve-new-check-content">上記内容でよろしければ「予約を確定」を押してください</p>
+
+            <%= f.submit "予約を確定", class: "btn btn-primary form-control my-3", data: {disable_with: "予約を確定"} %>
+            <%= link_to(controller: 'subscribes', action: 'show', id: @reserve.subscribe.id) do %>
+              <button class="btn btn-secondary form-control">ルーム詳細に戻る</button>
+            <% end %>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
