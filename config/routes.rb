@@ -9,10 +9,11 @@ Rails.application.routes.draw do
     get 'user/:id/account', to: 'users/registrations#account', as: 'user_account'
   end
 
-  get 'subscribe/new', to: 'subscribes#new'
-  post 'subscribe/create', to: 'subscribes#create'
-  get 'subscribe/index', to: 'subscribes#index'
-  get 'subscribe/:id', to: 'subscribes#show', as: 'subscribe'
+  resources :subscribes, only: [:index, :new, :create, :show] do
+    collection do
+      get 'search'
+    end
+  end
 
   resources :reserves, only: [:index, :new, :create, :show ]
   post 'reserve/confirm', to: 'reserves#confirm'

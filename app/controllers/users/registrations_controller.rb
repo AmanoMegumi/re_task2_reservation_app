@@ -25,7 +25,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     if @user.update(user_params)
-      redirect_to root_path
+      flash[:notice] = "Profile was successfully updated."
+      render :profile
     else
       render :profile
     end

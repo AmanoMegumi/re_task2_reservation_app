@@ -18,18 +18,18 @@
           <tr>
             <td>
               <%= link_to subscribe_path(:id) do %>
-                <%= image_tag subscribe.roomphoto.thumb.url, alt: "部屋画像", class: "subscribe-show-image" %>
+                <%= image_tag subscribe.roomphoto.thumb.url, alt: "部屋画像", class: "subscribe-index-image" %>
               <% end %>
             </td>
           
-            <td><%= link_to subscribe.roomname, "/subscribe/#{subscribe.id}" %></td>
-            <td><%= subscribe.explanation %></td>
-            <td><%= subscribe.price %></td>
+            <td class="subscribe-roomname"><%= link_to subscribe.roomname, "/subscribe/#{subscribe.id}" %></td>
+            <td class="subscribe-explanation"><%= subscribe.explanation %></td>
+            <td class="price-icon"><%= subscribe.price %></td>
             <td><%= subscribe.created_at %></td>
           </tr>
         <% end %>
       <% end %>
     </tbody>
   </table>
-
+  <div class="push-footer"></div>
 </div>

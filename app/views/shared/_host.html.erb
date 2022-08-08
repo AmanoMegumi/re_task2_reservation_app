@@ -2,29 +2,40 @@
   <div class="header-inner">
     <div class="header-left-nav">
       <%= link_to image_tag("logo.png", alt: "サイトロゴ"), root_path %>
+      <%= form_with(url: search_subscribes_path, local: true, skip_enforcing_utf8: true, method: :get) do |f| %>
+        <div class="header-search d-lg-inline-block d-none">
+          <%= f.text_field :address, class: "form-control", placeholder: "エリア" %>
+          <i class="fas fa-map-marker-alt" area-hidden="true"></i>
+        </div>
+
+        <div class="header-search d-lg-inline-block d-none">
+          <%= f.text_field :keyword, class: "form-control", placeholder: "キーワード" %>
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </div>
+        <%= f.submit :search, class: "d-none" %>
+      <% end %>
     </div>
 
-    <div class="dropdown">
-      <div class="header-right-nav">
-        <div class="nav-item d-sm-inline-block d-none">
-          <%= current_user.username %>
-        </div>
+    
+    <div class="header-right-nav">
+      <div class="nav-item d-sm-inline-block d-none">
+        <%= current_user.username %>
+      </div>
 
-        <div class="nav-item">
-          <input type="checkbox" id="icon">
-          <label for="icon">
-            <img class="mx-3 p-1 host-icon nav-trigger" alt="メニュー" src="<%= current_user.profile_photo %>" onerror="this.onerror=null;this.src='/assets/default_icon.jpg';">
-          </label>
-          <ul class="header-nav-menu">
-            <li><%= link_to "ルーム登録", subscribe_new_path %></li>
-            <li><%= link_to "予約済みルーム一覧", reserves_path %></li>
-            <li><%= link_to "登録済みルーム一覧", subscribe_index_path %></li>
-            <li><%= link_to "設定", user_account_path(current_user.id) %></li>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete%></li>
-          </ul>
-        </div>
-
+      <div class="nav-item">
+        <input type="checkbox" id="icon">
+        <label for="icon">
+          <img class="mx-3 p-1 host-icon nav-trigger" alt="メニュー" src="<%= current_user.image %>" onerror="this.onerror=null;this.src='/assets/default_icon.jpg';">
+        </label>
+        <ul class="header-nav-menu">
+          <li><%= link_to "ルーム登録", new_subscribe_path %></li>
+          <li><%= link_to "予約済みルーム一覧", reserves_path %></li>
+          <li><%= link_to "登録済みルーム一覧", subscribes_path %></li>
+          <li><%= link_to "設定", user_account_path(current_user.id) %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete%></li>
+        </ul>
       </div>
     </div>
+
   </div>
 </header>

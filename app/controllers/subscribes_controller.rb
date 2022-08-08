@@ -21,6 +21,11 @@ class SubscribesController < ApplicationController
     @subscribe = Subscribe.find(params[:id])
   end
 
+  def search
+    @subscribes = Subscribe.where('address LIKE ?', "%#{params[:address]}%").where('explanation LIKE ? OR roomname LIKE ?', "%#{params[:keyword]}%", "%#{params[:keyword]}%")
+    @result_number = @subscribes.count
+  end
+
   private
   def subscribe_params
     params.require(:subscribe).permit(:roomphoto)

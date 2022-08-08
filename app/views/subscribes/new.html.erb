@@ -3,7 +3,7 @@
     <div class="col-lg-2 subscribe-nav subscribe-nav-pc d-lg-block d-none">
       <ul>
         <li class="active">
-          <%= link_to "基本情報", subscribe_new_path %>
+          <%= link_to "基本情報", new_subscribe_path %>
         </li>
       </ul>
     </div>
@@ -11,14 +11,14 @@
     <div class="col-lg-2 subscribe-nav subscribe-nav-mobile d-lg-none">
       <ul>
         <li class="active">
-          <%= link_to "基本情報", subscribe_new_path %>
+          <%= link_to "基本情報", new_subscribe_path %>
         </li>
       </ul>
     </div>
 
     <div class="col-lg-10 subscribe-view">
       <div class="subscribe-view-box">
-        <%= form_with model: @subscribe, url: subscribe_create_path, id: 'new_subscribe', class: 'new_subscribe', local: true do |f| %>
+        <%= form_with model: @subscribe, id: 'new_subscribe', class: 'new_subscribe', local: true do |f| %>
 
           <div class="update-content">
             <div class="row">

@@ -50,6 +50,7 @@
   .container {
     max-width: 960px;
   }
+
   .col-lg-6 {
     flex: 0 0 50%;
     max-width: 50%;
@@ -77,11 +78,24 @@
     flex: 0 0 83.333333%;
     max-width: 83.333333%;
   }
+
+  .d-lg-inline-block {
+    display: inline-block!important;
+  }
+  
+  .header-search-container {
+    display: none;
+  }
 }
 
 //min-width: 1200px
 @media screen and(min-width: 1200px){
   .container {
     max-width: 1140px;
+  }
+
+  .col-xl-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
   }
 }

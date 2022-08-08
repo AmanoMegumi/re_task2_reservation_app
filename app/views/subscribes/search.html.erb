@@ -1,0 +1,24 @@
+<div class="container-fiuld subscribe">
+  <h4 class="pb-4">検索結果：<%= @result_number %>件</h4>
+  <div class="row">
+
+    <% @subscribes.each do |subscribe| %>
+      <div class="col-sm-6 col-lg-4 col-xl-3">
+        <div class="subscribe-frame-inner">
+          <%= link_to(controller: 'subscribes', action: 'show', id: subscribe.id) do %>
+            <div class="subscribe-roomphoto-out">
+              <%= image_tag subscribe.roomphoto.url, alt: "部屋画像", class: "subscribe-roomphoto" %>
+            </div>
+
+            <div class="subscribe-profile">
+              <p class="subscribe-profile-roomname"><%= subscribe.roomname %></p>
+              <p class="subscribe-profile-address"><%= subscribe.address %></p>
+              <p class="subscribe-profile-price price-icon"><%= subscribe.price %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="push-footer"></div>
+</div>

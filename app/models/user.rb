@@ -9,8 +9,8 @@ class User < ApplicationRecord
 
   validates :username, presence: true
   validates :email, uniqueness: true, presence: true
-  validates :password, presence: true, confirmation: true
-  validates :password_confirmation, presence: true
+  validates :password, presence: true, confirmation: true, on: :create
+  validates :password_confirmation, presence: true, on: :create
 
   validates :image, presence: true, on: :update
   validates :introduction, presence: true, on: :update

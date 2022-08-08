@@ -73,3 +73,4 @@ gem 'webpacker', '~> 3.0'
 
 gem 'rmagick'
 
+gem 'font-awesome-rails'

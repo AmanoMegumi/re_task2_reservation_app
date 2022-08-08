@@ -103,7 +103,37 @@
   letter-spacing: 1px;
 }
 
-//ここにフォームのCSS入れろ//
+//search
+.header-left-nav form {
+  display: inline-block;
+}
+
+.header-left-nav .form-control {
+  width: 180px;
+  display: inline-block;
+  position: relative;
+  border-radius: 2px;
+  padding-left: 30px;
+}
+
+.header-search {
+  position: relative;
+}
+
+.header i {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  font-size: 18px;
+}
+
+.fa-map-marker-alt:before {
+  content: "\f3c5";
+}
+
+.form-top label {
+  font-size: 13px;
+} 
 
 
 //toppage---container(panel-area)
@@ -117,14 +147,7 @@
   font-weight: bold;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
-.panel-image {
+.top .panel-image {
   width: 100%;
   height: 360px;
   object-fit: cover;
