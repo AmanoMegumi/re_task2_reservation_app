@@ -1,0 +1,88 @@
+// Place all the styles related to the reserves controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+//show
+.reserve-new {
+  padding: 30px 0;
+}
+
+.col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.offset-3 {
+  margin-left: 25%;
+}
+
+.reserve-new-nav {
+  padding: 20px;
+  border: 1px solid #eaedef;
+}
+
+.reserve-new-check-content {
+  border-bottom: 1px solid #eaedef;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+
+.reserve-new-date-select {
+  padding: 15px 0;
+}
+
+.reserve-new-date-select label {
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+
+//index
+.reserve-index {
+  max-width: 100vw;
+  padding: 30px 60px;
+}
+
+.reserve-index table {
+  min-width: 800px;
+  width: 100%;
+}
+
+.reserve-index table thead tr {
+  border-top: 1px solid #eaedef;
+  border-bottom: 1px solid #eaedef;
+}
+
+.reserve-index table thead th {
+  padding: 8px 15px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.reserve-index table tbody td {
+  padding: 10px;
+}
+
+.reserve-index table tbody .posts-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #909090;
+}
+
+.reserve-index table tbody a {
+  color: #4a90e2;
+  text-decoration: underline;
+}
+
+.reserve-index table tbody .posts-content {
+  max-width: 400px;
+}
+
+.reserve-index table tbody tr {
+  border-bottom: 1px solid #eaedef;
+}
+
+.reserve-index table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}

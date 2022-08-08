@@ -1,0 +1,26 @@
+<div class="container devise">
+  <div class="devise_frame">
+    <p class="my-4">ログイン</p>
+    <div class="devise_inner">
+      <%= form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+        <div class="field form-row">
+          <div class="col-2 required-b pt-2">
+          </div>
+          <%= f.text_field :email, placeholder: "メールアドレス", autocomplete: "email", class: "form-controll col-10 px-2" %>
+        </div>
+
+        <div class="field form-row">
+          <div class="col-2 required-b pt-2">
+          </div>
+          <%= f.password_field :password, placeholder: "パスワード", autocomplete: "new-password", class: "form-controll col-10 px-2"%>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "ログイン", class: "form-controll btn-primary my-4", data: {disable_with: "ログイン"} %>
+        </div>
+      <% end %>
+      <%= link_to "新しいアカウントを作成", new_user_registration_path, class: "new_user" %> <!-- リンクちゃんとかく -->   
+    </div>
+  </div>
+  <div class="push-footer"></div>
+</div>
