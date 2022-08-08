@@ -17,12 +17,12 @@
         <% if subscribe.user_id == current_user.id %>
           <tr>
             <td>
-              <%= link_to subscribe_path(:id) do %>
+              <%= link_to subscribe_path(subscribe.id) do %>
                 <%= image_tag subscribe.roomphoto.thumb.url, alt: "部屋画像", class: "subscribe-index-image" %>
               <% end %>
             </td>
           
-            <td class="subscribe-roomname"><%= link_to subscribe.roomname, "/subscribe/#{subscribe.id}" %></td>
+            <td class="subscribe-roomname"><%= link_to subscribe.roomname, subscribe_path(subscribe.id) %></td>
             <td class="subscribe-explanation"><%= subscribe.explanation %></td>
             <td class="price-icon"><%= subscribe.price %></td>
             <td><%= subscribe.created_at %></td>
